@@ -1,0 +1,288 @@
+login as: code
+code@192.168.0.230's password:
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 • MobaXterm Personal Edition v23.6 •                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ⮞ SSH session to code@192.168.0.230                                  │
+    │   • Direct SSH      :  ✓                                             │
+    │   • SSH compression :  ✓                                             │
+    │   • SSH-browser     :  ✓                                             │
+    │   • X11-forwarding  :  ✓  (remote display is forwarded through SSH)  │
+    │                                                                      │
+    │ ⮞ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 6.8.0-87-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Sat Nov  1 12:53:58 2025 from 192.168.0.134
+/usr/bin/xauth:  file /home/code/.Xauthority does not exist
+code@sftpgo:~$ sudo su
+[sudo] password for code:
+root@sftpgo:/home/code#
+root@sftpgo:/home/code# cd
+root@sftpgo:~#
+root@sftpgo:~# history
+    1  cd
+    2  history
+root@sftpgo:~#
+root@sftpgo:~#
+exit
+code@sftpgo:~$ history
+    1  sudo su
+    2  history
+code@sftpgo:~$
+code@sftpgo:~$ history
+    1  sudo su
+    2  history
+code@sftpgo:~$
+code@sftpgo:~$ systemctl status sftpgo
+● sftpgo.service - SFTPGo Server
+     Loaded: loaded (/lib/systemd/system/sftpgo.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sun 2025-11-02 12:07:17 IST; 2min 36s ago
+   Main PID: 756 (sftpgo)
+      Tasks: 8 (limit: 4485)
+     Memory: 62.9M
+        CPU: 482ms
+     CGroup: /system.slice/sftpgo.service
+             └─756 /usr/bin/sftpgo serve
+
+Nov 02 12:07:18 sftpgo sftpgo[756]: {"level":"info","time":"2025-11-02T12:07:18.715","sender":"sftpd","message":"Loading private host key \"/etc/sftpgo/id_ed25519\""}
+Nov 02 12:07:18 sftpgo sftpgo[756]: {"level":"info","time":"2025-11-02T12:07:18.716","sender":"sftpd","message":"Host key \"/etc/sftpgo/id_ed25519\" loaded, type \"ss>
+Nov 02 12:07:18 sftpgo sftpgo[756]: {"level":"debug","time":"2025-11-02T12:07:18.722","sender":"sftpd","message":"enabled SSH commands [md5sum sha1sum sha256sum cd pw>
+Nov 02 12:07:18 sftpgo sftpgo[756]: {"level":"info","time":"2025-11-02T12:07:18.726","sender":"httpd","message":"using memory task manager"}
+Nov 02 12:07:18 sftpgo sftpgo[756]: {"level":"debug","time":"2025-11-02T12:07:18.733","sender":"util","message":"found share data path for name \"static\": \"/usr/sha>
+Nov 02 12:07:18 sftpgo sftpgo[756]: {"level":"debug","time":"2025-11-02T12:07:18.733","sender":"util","message":"found share data path for name \"templates\": \"/usr/>
+Nov 02 12:07:18 sftpgo sftpgo[756]: {"level":"debug","time":"2025-11-02T12:07:18.733","sender":"util","message":"found share data path for name \"openapi\": \"/usr/sh>
+Nov 02 12:07:18 sftpgo sftpgo[756]: {"level":"info","time":"2025-11-02T12:07:18.735","sender":"sftpd","message":"server listener registered, address: [::]:2022"}
+Nov 02 12:07:19 sftpgo sftpgo[756]: {"level":"debug","time":"2025-11-02T12:07:19.220","sender":"httpd","message":"API token duration 20m0s, cookie token duration 20m0>
+Nov 02 12:07:19 sftpgo sftpgo[756]: {"level":"info","time":"2025-11-02T12:07:19.230","sender":"httpd","message":"server listener registered, address: [::]:8080 TLS en>
+
+code@sftpgo:~$
+code@sftpgo:~$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           383M  3.0M  380M   1% /run
+/dev/sda3        49G   13G   34G  27% /
+tmpfs           1.9G     0  1.9G   0% /dev/shm
+tmpfs           5.0M  4.0K  5.0M   1% /run/lock
+/dev/sdb1        20G  416K   19G   1% /kfin
+/dev/sda2       512M  6.1M  506M   2% /boot/efi
+tmpfs           383M   96K  382M   1% /run/user/1000
+code@sftpgo:~$
+code@sftpgo:~$ ip r s
+default via 192.168.0.1 dev enp0s3 proto dhcp metric 100
+169.254.0.0/16 dev enp0s3 scope link metric 1000
+192.168.0.0/24 dev enp0s3 proto kernel scope link src 192.168.0.230 metric 100
+code@sftpgo:~$
+code@sftpgo:~$ smbpasswd kedar
+When run by root:
+    smbpasswd [options] [username]
+otherwise:
+    smbpasswd [options]
+
+options:
+  -L                   local mode (must be first option)
+  -h                   print this usage message
+  -s                   use stdin for password prompt
+  -c smb.conf file     Use the given path to the smb.conf file
+  -D LEVEL             debug level
+  -r MACHINE           remote machine
+  -U USER              remote username (e.g. SAM/user)
+extra options when run by root or in local mode:
+  -a                   add user
+  -d                   disable user
+  -e                   enable user
+  -i                   interdomain trust account
+  -m                   machine trust account
+  -n                   set no password
+  -W                   use stdin ldap admin password
+  -w PASSWORD          ldap admin password
+  -x                   delete user
+  -R ORDER             name resolve order
+code@sftpgo:~$
+code@sftpgo:~$ sudo su
+[sudo] password for code:
+root@sftpgo:/home/code#
+root@sftpgo:/home/code# cd
+root@sftpgo:~#
+root@sftpgo:~# smbpasswd kedar
+New SMB password:
+Retype new SMB password:
+root@sftpgo:~#
+root@sftpgo:~# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           383M  3.1M  380M   1% /run
+/dev/sda3        49G   13G   34G  27% /
+tmpfs           1.9G     0  1.9G   0% /dev/shm
+tmpfs           5.0M  4.0K  5.0M   1% /run/lock
+/dev/sdb1        20G  416K   19G   1% /kfin
+/dev/sda2       512M  6.1M  506M   2% /boot/efi
+tmpfs           383M   96K  382M   1% /run/user/1000
+root@sftpgo:~#
+root@sftpgo:~#
+root@sftpgo:~#
+root@sftpgo:~# cd /kfin
+root@sftpgo:/kfin#
+root@sftpgo:/kfin# ls -ltr
+total 1181436
+drwxr-xr-x 2 sftpgo sftpgo      16384 Nov  1 13:02  lost+found
+-rw-r--r-- 1 sftpgo sftpgo     143693 Nov  1 13:48  Picture1.png
+-rw-r--r-- 1 sftpgo sftpgo     161659 Nov  1 14:02  download.pdf
+-rw-r--r-- 1 sftpgo sftpgo      88951 Nov  1 15:06  2bda2341-0a89-47cc-9501-4314e36c42af.png
+-rw-r--r-- 1 sftpgo sftpgo          0 Nov  2 12:30  kc.txt
+-rw-r--r-- 1 sftpgo sftpgo 1209352192 Nov  2 14:04  Kantara-Chapter.1.2025.1080p.WEB-DL.Hindi.Line-Kannada.5.1.ESub.x264-Vegamovies.co.rs.mkv
+-rw-r--r-- 1 sftpgo sftpgo      14574 Nov  2 14:05 'Trade Alert.json'
+root@sftpgo:/kfin#
+root@sftpgo:/kfin# rm -rf *
+root@sftpgo:/kfin#
+root@sftpgo:/kfin# ip r s
+default via 192.168.0.1 dev enp0s3 proto dhcp metric 100
+169.254.0.0/16 dev enp0s3 scope link metric 1000
+192.168.0.0/24 dev enp0s3 proto kernel scope link src 192.168.0.230 metric 100
+root@sftpgo:/kfin#
+root@sftpgo:/kfin# pwd
+/kfin
+root@sftpgo:/kfin#
+root@sftpgo:/kfin# ls -ltr
+total 0
+root@sftpgo:/kfin# ssh-keygen -t rsa -b 2048
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa):
+Created directory '/root/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/id_rsa
+Your public key has been saved in /root/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:DpdgZj3fqoIm01SI1VtpWh+XsS9E9OmMRBcWWeO9c2Y root@sftpgo
+The key's randomart image is:
++---[RSA 2048]----+
+|     .   . .=o=*.|
+|    . ..= .oo=o.o|
+|   o .=*o. o+ o..|
+|  . .++. +.+ =  .|
+|     .. S . + +oE|
+|    .  +   . . oo|
+|   o .  . .      |
+|  o + .  .       |
+|   +   ..        |
++----[SHA256]-----+
+root@sftpgo:/kfin#
+root@sftpgo:/kfin# ssh-copy-id root@192.168.112.128
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/root/.ssh/id_rsa.pub"
+
+^C/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: 183: cannot create /root/.ssh/ssh-copy-id.7WzuBdQqWC/popids_tmp_id: Directory nonexistent
+/usr/bin/ssh-copy-id: 189: cannot create /root/.ssh/ssh-copy-id.7WzuBdQqWC/popids_output: Directory nonexistent
+grep: /root/.ssh/ssh-copy-id.7WzuBdQqWC/popids_output: No such file or directory
+/usr/bin/ssh-copy-id: 202: cannot open /root/.ssh/ssh-copy-id.7WzuBdQqWC/popids_output: No such file
+cat: /root/.ssh/ssh-copy-id.7WzuBdQqWC/popids_tmp_id: No such file or directory
+
+/usr/bin/ssh-copy-id: WARNING: All keys were skipped because they already exist on the remote system.
+                (if you think this is a mistake, you may want to use -f option)
+
+root@sftpgo:/kfin# ssh root@192.168.112.128 "echo Connected successfully"
+
+^C
+root@sftpgo:/kfin#
+root@sftpgo:/kfin#
+root@sftpgo:/kfin# nano /usr/local/bin/transfer_to_postgres.sh
+root@sftpgo:/kfin# cat /usr/local/bin/transfer_to_postgres.sh
+#!/bin/bash
+# -----------------------------------------------
+# Script: transfer_to_postgres.sh
+# Purpose: Auto-transfer new files from /kfin on sftpgo
+#          to /tmp on PostgreSQL server (lab1)
+# -----------------------------------------------
+
+WATCH_DIR="/kfin"
+REMOTE_USER="root"
+REMOTE_HOST="192.168.112.128"
+REMOTE_DIR="/tmp"
+
+# Ensure inotifywait is installed
+if ! command -v inotifywait &> /dev/null; then
+    echo "Installing inotify-tools..."
+    apt install inotify-tools -y
+fi
+
+echo "Watching $WATCH_DIR for new files..."
+inotifywait -m -e close_write --format '%f' "$WATCH_DIR" | while read FILE
+do
+    echo "[$(date)] Detected new file: $FILE"
+
+    # Transfer file
+    scp "$WATCH_DIR/$FILE" ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}/
+    if [ $? -eq 0 ]; then
+        echo "[$(date)] File transferred successfully to ${REMOTE_HOST}:${REMOTE_DIR}/$FILE"
+    else
+        echo "[$(date)] ERROR: Failed to transfer $FILE"
+    fi
+done
+root@sftpgo:/kfin#
+root@sftpgo:/kfin# chmod +x /usr/local/bin/transfer_to_postgres.sh
+root@sftpgo:/kfin#
+root@sftpgo:/kfin# cat > /kfin/users.csv <<EOF
+name,email
+Alice Johnson,alice.johnson@example.com
+Bob Martin,bob.martin@example.com
+Charlie Singh,charlie.singh@example.com
+David Kumar,david.kumar@example.com
+Esha Rao,esha.rao@example.com
+EOF
+root@sftpgo:/kfin#
+root@sftpgo:/kfin# /usr/local/bin/transfer_to_postgres.sh
+Installing inotify-tools...
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libinotifytools0
+The following NEW packages will be installed:
+  inotify-tools libinotifytools0
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 54.8 kB of archives.
+After this operation, 233 kB of additional disk space will be used.
+Get:1 http://in.archive.ubuntu.com/ubuntu jammy/universe amd64 libinotifytools0 amd64 3.22.1.0-2 [22.6 kB]
+Get:2 http://in.archive.ubuntu.com/ubuntu jammy/universe amd64 inotify-tools amd64 3.22.1.0-2 [32.2 kB]
+Fetched 54.8 kB in 1s (72.8 kB/s)
+Selecting previously unselected package libinotifytools0:amd64.
+(Reading database ... 185509 files and directories currently installed.)
+Preparing to unpack .../libinotifytools0_3.22.1.0-2_amd64.deb ...
+Unpacking libinotifytools0:amd64 (3.22.1.0-2) ...
+Selecting previously unselected package inotify-tools.
+Preparing to unpack .../inotify-tools_3.22.1.0-2_amd64.deb ...
+Unpacking inotify-tools (3.22.1.0-2) ...
+Setting up libinotifytools0:amd64 (3.22.1.0-2) ...
+Setting up inotify-tools (3.22.1.0-2) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.11) ...
+Watching /kfin for new files...
+Setting up watches.
+Watches established.
+
+[Sunday 02 November 2025 03:38:25 PM IST] Detected new file: users2.csv
+
+ssh: connect to host 192.168.112.128 port 22: Connection timed out
+lost connection
+[Sunday 02 November 2025 03:40:38 PM IST] ERROR: Failed to transfer users2.csv
+^C
+root@sftpgo:/kfin#
+root@sftpgo:/kfin# ls -ld
+drwxr-xr-x 2 sftpgo sftpgo 4096 Nov  2 16:07 .
+root@sftpgo:/kfin#
+
